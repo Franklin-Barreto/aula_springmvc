@@ -7,7 +7,7 @@ public class SevletConfig extends AbstractAnnotationConfigDispatcherServletIniti
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Class[] {JPAConfiguration.class};
 	}
 
 	@Override

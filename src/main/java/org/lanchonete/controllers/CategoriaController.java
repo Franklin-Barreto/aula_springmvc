@@ -1,14 +1,24 @@
 package org.lanchonete.controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;;
+import java.util.List;
 
-@Controller
+import org.lanchonete.dao.CategoriaDao;
+import org.lanchonete.models.Categoria;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;;
+
+@RestController
+@RequestMapping("/categoria")
 public class CategoriaController {
 
-	@GetMapping("/categoria")
-	public String index() {
-		return "categoria/lista-categorias";
+	@Autowired
+	CategoriaDao categorias;
+
+	@GetMapping()
+	public List<Categoria> findAll() {
+		return categorias.findAll();
 	}
 
 }
